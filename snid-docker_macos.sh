@@ -24,9 +24,9 @@ echo "   XQuartz is required for the SNID display. Install XQuartz"
 echo "   using .dmg file directly from its website, or use Homebew"
 echo "   'brew install --cask xquartz'"
 echo ""
-echo '   After installation complete (if not done already), start XQuartz'
-echo '   application, select Preferences menu, go to the “Security” tab'
-echo '   and make sure to enable “Allow connections from network clients”'
+echo '   After installation is complete (if not done already), start XQuartz'
+echo '   application, open "Settings" from menu, go to the “Security” tab and'
+echo '   make sure to enable “Allow connections from network clients”.'
 echo ""
 echo "   Then close XQuarts application completely. Make sure to close"
 echo "   from Dock in case it is running in the background."
