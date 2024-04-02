@@ -1,5 +1,5 @@
 # Run this installer as 
-# $ curl -sL https://raw.githubusercontent.com/SubhashBose/install-scripts/main/snid-docker_macos.sh  | sudo sh
+# $ curl -sL https://install-scripts.bose.dev/snid-docker_macos.sh  | sudo sh
 
 (cat <<"EOF" > /usr/local/bin/doSnid
 #!/bin/sh
@@ -35,7 +35,7 @@ echo "Then you are all set, you can run SNID as:"
 echo "> doSnid spectrum.txt"
 echo "This SNID container includes two additional sets of spectral"
 echo "templates. One big set of core-collapse SNe templates and a "
-echo "superluminious SNe template set. You can invoke each of"
+echo "superluminous SNe template set. You can invoke each of"
 echo "these sets as 'doSnid --templates=Big spectrum.txt' and"
 echo "'doSnid --templates=SLSN spectrum.txt'"
 echo ""
