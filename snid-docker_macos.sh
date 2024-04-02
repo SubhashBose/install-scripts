@@ -3,6 +3,7 @@
 
 (cat <<"EOF" > /usr/local/bin/doSnid
 #!/bin/sh
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
 xhost + localhost > /dev/null
 docker run --rm -it -v ./:/workdir  -e DISPLAY=host.docker.internal:0 -v /tmp/.X11-unix:/tmp/.X11-unix subhashbose/snid "$@"
 EOF
