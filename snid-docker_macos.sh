@@ -8,7 +8,7 @@ xhost + localhost > /dev/null
 docker run --rm -it -v ./:/workdir -v /tmp/.X11-unix:/tmp/.X11-unix subhashbose/snid "$@"
 EOF
 
-) && chmod 777 /usr/local/bin/doSnid && docker pull subhashbose/snid && (
+) && chmod 777 /usr/local/bin/doSnid && DOCKER_CLI_HINTS=false docker pull subhashbose/snid && (
 
 echo ''
 echo '============================= DONE =============================='
