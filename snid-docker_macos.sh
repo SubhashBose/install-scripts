@@ -32,8 +32,8 @@ echo "Then you are all set, you can run SNID as:"
 echo "> doSnid spectrum.txt"
 echo "This SNID container includes two additional sets of spectral"
 echo "templates. One big set of core-collapse SNe templates and a "
-echo "superluminious supernova template set. You can invoke each of"
+echo "superluminious SNe template set. You can invoke each of"
 echo "these sets as 'doSnid --templates=Big spectrum.txt' and"
-echo "'doSnid --templates=Big spectrum.txt'"
+echo "'doSnid --templates=SLSN spectrum.txt'"
 
 )
