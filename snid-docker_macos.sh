@@ -8,7 +8,7 @@ xhost + localhost > /dev/null
 docker run --rm -it -v ./:/workdir -v /tmp/.X11-unix:/tmp/.X11-unix subhashbose/snid "$@"
 EOF
 
-) && chmod 777 /usr/local/bin/doSnid && docker pull subhashbose/snid 2> /dev/null && (
+) && chmod 777 /usr/local/bin/doSnid && docker pull subhashbose/snid && (
 
 echo ''
 echo '============================= DONE =============================='
@@ -38,5 +38,7 @@ echo "templates. One big set of core-collapse SNe templates and a "
 echo "superluminious SNe template set. You can invoke each of"
 echo "these sets as 'doSnid --templates=Big spectrum.txt' and"
 echo "'doSnid --templates=SLSN spectrum.txt'"
+echo ""
+echo "For command line help use: doSnid --help"
 
 )
