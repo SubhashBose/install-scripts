@@ -1,4 +1,5 @@
-#Run as 'curl -sL https://  | sudo sh
+# Run this installer as 
+# $ curl -sL https://raw.githubusercontent.com/SubhashBose/install-scripts/main/snid-docker_macos.sh  | sudo sh
 
 (cat <<"EOF" > /usr/local/bin/doSnid
 #!/bin/sh
@@ -19,9 +20,19 @@ echo "XQuartz is required for the SNID display. Install XQuartz"
 echo "using .dmg file directly from its website, or use Homebew"
 echo "'brew install --cask xquartz'"
 echo ""
-echo 'After intallation complete (if not done already), start XQuartz'
+echo 'After installation complete (if not done already), start XQuartz'
 echo 'application, select Preferences menu, go to the “Security” tab'
 echo 'and make sure to enable “Allow connections from network clients”'
 echo ""
+echo "Then close XQuarts application completely. Make sure to close"
+echo "from Dock in case it is running in the background."
+echo ""
+echo "Then you are all set, you can run SNID as:"
+echo "> doSnid spectrum.txt"
+echo "This SNID container includes two additional sets of spectral"
+echo "templates. One big set of core-collapse SNe templates and a "
+echo "superluminious supernova template set. You can invoke each of"
+echo "these sets as 'doSnid --templates=Big spectrum.txt' and"
+echo "'doSnid --templates=Big spectrum.txt'"
 
 )
