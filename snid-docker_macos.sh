@@ -5,7 +5,7 @@
 #!/bin/sh
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 xhost + localhost > /dev/null
-docker run --rm -it -v ./:/workdir  -e DISPLAY=host.docker.internal:0 -v /tmp/.X11-unix:/tmp/.X11-unix subhashbose/snid "$@"
+docker run --rm -it -v ./:/workdir -v /tmp/.X11-unix:/tmp/.X11-unix subhashbose/snid "$@"
 EOF
 
 ) && chmod 777 /usr/local/bin/doSnid && docker pull subhashbose/snid 2> /dev/null && (
