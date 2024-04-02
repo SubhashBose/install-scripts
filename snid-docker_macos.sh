@@ -16,16 +16,17 @@ echo "script in turn runs the docker container 'subhashbose/snid'"
 echo "which does the heavy lifting."
 echo ""
 echo ""
-echo "XQuartz is required for the SNID display. Install XQuartz"
-echo "using .dmg file directly from its website, or use Homebew"
-echo "'brew install --cask xquartz'"
+echo "IMPORTANT!!!"
+echo "   XQuartz is required for the SNID display. Install XQuartz"
+echo "   using .dmg file directly from its website, or use Homebew"
+echo "   'brew install --cask xquartz'"
 echo ""
-echo 'After installation complete (if not done already), start XQuartz'
-echo 'application, select Preferences menu, go to the “Security” tab'
-echo 'and make sure to enable “Allow connections from network clients”'
+echo '   After installation complete (if not done already), start XQuartz'
+echo '   application, select Preferences menu, go to the “Security” tab'
+echo '   and make sure to enable “Allow connections from network clients”'
 echo ""
-echo "Then close XQuarts application completely. Make sure to close"
-echo "from Dock in case it is running in the background."
+echo "   Then close XQuarts application completely. Make sure to close"
+echo "   from Dock in case it is running in the background."
 echo ""
 echo "Then you are all set, you can run SNID as:"
 echo "> doSnid spectrum.txt"
