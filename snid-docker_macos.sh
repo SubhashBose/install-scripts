@@ -9,7 +9,8 @@ EOF
 
 ) && chmod 777 /usr/local/bin/doSnid && docker pull subhashbose/snid && (
 
-echo '=========================== DONE ============================'
+echo ''
+echo '============================= DONE =============================='
 echo ''
 echo "I have placed a script named 'doSnid' in your path, that you "
 echo "can call from any directory in your terminal. The 'doSnid' "
