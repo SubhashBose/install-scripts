@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-#This will keep the Github Action active, by making periodic empty commits.
-#export the variables to set values otehr than defaults before calling the script.
+#This will keep the GitHub Action active by making periodic empty commits.
+#export the variables to set values other than defaults before calling the script.
 # $ curl -sL https://raw.githubusercontent.com/SubhashBose/install-scripts/refs/heads/main/action-keepalive.sh | bash
 
 if [[ -z "$COMMIT_USERNAME" ]]; then
