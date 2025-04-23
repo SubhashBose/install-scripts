@@ -37,16 +37,15 @@ jobs:
       
       - name: Keeping alive by Re-enabling workflow using API
         env:
+          DAYS_ELAPSED: 55
+          USE_API: true
           GH_TOKEN: ${{ github.token }}
-        run: |
-          export DAYS_ELAPSED='55'
-          export USE_API=true
-          curl -sL https://raw.githubusercontent.com/SubhashBose/install-scripts/refs/heads/main/action-keepalive.sh | bash
+        run: curl -sL https://raw.githubusercontent.com/SubhashBose/install-scripts/refs/heads/main/action-keepalive.sh | bash
       
       - name: Keep alive by empty commits
-        run: |
-          export DAYS_ELAPSED='55'
-          curl -sL https://raw.githubusercontent.com/SubhashBose/install-scripts/refs/heads/main/action-keepalive.sh | bash
+        env:
+          DAYS_ELAPSED: 55
+        run: curl -sL https://raw.githubusercontent.com/SubhashBose/install-scripts/refs/heads/main/action-keepalive.sh | bash
 EXAMPLE
 
 set -o nounset
