@@ -3,6 +3,12 @@
 #export the variables to set values other than defaults before calling the script.
 # $ curl -sL https://raw.githubusercontent.com/SubhashBose/install-scripts/refs/heads/main/action-keepalive.sh | bash
 
+if [[ -z "$DAYS_ELAPSED" ]]; then
+  DAYS_ELAPSED='50'
+fi
+if [[ -z "$USE_API" ]]; then
+  USE_API=false   # If false empty commits will be made
+fi
 if [[ -z "$COMMIT_USERNAME" ]]; then
   COMMIT_USERNAME=KeepAliveBot
 fi
@@ -12,12 +18,36 @@ fi
 if [[ -z "$COMMIT_MESSAGE" ]]; then
   COMMIT_MESSAGE='Keeping alive'
 fi
-if [[ -z "$DAYS_ELAPSED" ]]; then
-  DAYS_ELAPSED='50'
-fi
-if [[ -z "$USE_API" ]]; then
-  USE_API=false
-fi
+
+#Example workflow.yml
+: <<'EXAMPLE'
+name: Keep Alive example
+on:
+  #push:
+  workflow_dispatch:
+permissions:
+  contents: write  # For non-API, i.e commit mode
+  actions: write   # For API use mode
+
+jobs:
+  check-expiry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Keeping alive by Re-enabling workflow using API
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          export DAYS_ELAPSED='55'
+          export USE_API=true
+          curl -sL https://raw.githubusercontent.com/SubhashBose/install-scripts/refs/heads/main/action-keepalive.sh | bash
+      
+      - name: Keep alive by empty commits
+        run: |
+          export DAYS_ELAPSED='55'
+          curl -sL https://raw.githubusercontent.com/SubhashBose/install-scripts/refs/heads/main/action-keepalive.sh | bash
+EXAMPLE
 
 set -o nounset
 set -o errexit
@@ -38,6 +68,9 @@ if [ "$DAYS_AGO" -gt "$DAYS_ELAPSED" ]; then
         #Required permission
         #permissions:
         #   actions: write
+        #Also set env for the step
+        #env:
+        #  GH_TOKEN: ${{ github.token }}
         echo "Using API to keep alive"
         case "${GITHUB_WORKFLOW_REF:?}" in
           "${GITHUB_REPOSITORY:?}"/.github/workflows/*.y*ml@*) ;;
