@@ -59,3 +59,4 @@ if [ "$DAYS_AGO" -gt "$DAYS_ELAPSED" ]; then
     echo "done"
 else
     echo "$DAYS_AGO <= $DAYS_ELAPSED -> nothing to do"
+fi
