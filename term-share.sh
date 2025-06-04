@@ -2,7 +2,7 @@
 
 #run as 
 # curl -sL https://install-scripts.bose.dev/term-share.sh | sudo bash -s -- <TOKEN>
-
+# curl -sL https://install-scripts.bose.dev/term-share.sh >/tmp/ts.sh && chmod +x /tmp/ts.sh && /tmp/ts.sh <TOKEN>
 
 # Detect OS
 OS="$(uname -s)"
@@ -50,6 +50,6 @@ chmod +x /tmp/tty-share /tmp/cfd
 /tmp/cfd tunnel run --token "$1" > /dev/null  2>&1 &
 cfd_pid=$!
 
-/tmp/tty-share -listen localhost:63742 -base-url-path 'sb'
+/tmp/tty-share -listen localhost:63742 -base-url-path 'sb' -silent
 
 kill "$cfd_pid"
