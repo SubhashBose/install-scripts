@@ -38,7 +38,7 @@ URL="https://github.com/SubhashBose/tty-share/releases/latest/download/tty-share
 $DOWNLOADER "$URL" > /tmp/tty-share
 chmod +x /tmp/tty-share
 
-RUNNER="/tmp/tty-share -listen localhost:63742 -base-url-path 'sb' -silent"
+RUNNER="/tmp/tty-share -listen localhost:63742 -silent"
 
 if [ -n "$1" ]; then
     URL="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-${OS}-${ARCH}${fn_append}"
