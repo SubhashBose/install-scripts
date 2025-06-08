@@ -36,20 +36,22 @@ fi
 
 URL="https://github.com/SubhashBose/tty-share/releases/latest/download/tty-share_${OS}-${ARCH}"
 $DOWNLOADER "$URL" > /tmp/tty-share
+chmod +x /tmp/tty-share
 
-URL="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-${OS}-${ARCH}${fn_append}"
-if [ -n "$fn_append" ]; then
-    $DOWNLOADER "$URL" | tar zxvfO - cloudflared > /tmp/cfd
+RUNNER="/tmp/tty-share -listen localhost:63742 -base-url-path 'sb' -silent"
+
+if [ -n "$1" ]; then
+    URL="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-${OS}-${ARCH}${fn_append}"
+    if [ -n "$fn_append" ]; then
+        $DOWNLOADER "$URL" | tar zxvfO - cloudflared > /tmp/cfd
+    else
+        $DOWNLOADER "$URL" > /tmp/cfd
+    fi
+    chmod +x /tmp/cfd
+    /tmp/cfd tunnel run --token "$1" > /dev/null  2>&1 &
+    cfd_pid=$!
+    $RUNNER
+    kill "$cfd_pid"
 else
-    $DOWNLOADER "$URL" > /tmp/cfd
+    $RUNNER -public -webhook "https://webhook2tg.bose.dev/LQ7bZv2bp?msgparam=url"
 fi
-
-# Make it executable
-chmod +x /tmp/tty-share /tmp/cfd
-
-/tmp/cfd tunnel run --token "$1" > /dev/null  2>&1 &
-cfd_pid=$!
-
-/tmp/tty-share -listen localhost:63742 -base-url-path 'sb' -silent
-
-kill "$cfd_pid"
