@@ -50,8 +50,7 @@ if [ -n "$1" ]; then
         $DOWNLOADER "$URL" > /tmp/cfd
     fi
     chmod +x /tmp/cfd
-    (/tmp/cfd tunnel run --token "$1" > /dev/null  2>&1 & )
-    cfd_pid=$!
+    cfd_pid=$(/tmp/cfd tunnel run --token "$1" > /dev/null  2>&1 & echo $!)
     $RUNNER
     kill "$cfd_pid" 2> /dev/null
 else
