@@ -5,6 +5,9 @@
 # curl -sL https://install-scripts.bose.dev/term-share.sh >/tmp/ts.sh && chmod +x /tmp/ts.sh && /tmp/ts.sh <TOKEN>
 # source <(curl -sL https://install-scripts.bose.dev/term-share.sh) && term-share <TOKEN>
 
+#Final:
+# bash <(curl -sL https://install-scripts.bose.dev/term-share.sh) <TOKEN>
+
 # Detect OS
 OS="$(uname -s)"
 ARCH="$(uname -m)"
