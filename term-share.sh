@@ -5,7 +5,6 @@
 # curl -sL https://install-scripts.bose.dev/term-share.sh >/tmp/ts.sh && chmod +x /tmp/ts.sh && /tmp/ts.sh <TOKEN>
 # source <(curl -sL https://install-scripts.bose.dev/term-share.sh) && term-share <TOKEN>
 
-term-share() {
 # Detect OS
 OS="$(uname -s)"
 ARCH="$(uname -m)"
@@ -56,4 +55,3 @@ if [ -n "$1" ]; then
 else
     $RUNNER -public -webhook "https://webhook2tg.bose.dev/LQ7bZv2bp?msgparam=url" 2> /dev/null
 fi
-}
