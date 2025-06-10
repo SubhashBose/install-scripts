@@ -3,7 +3,9 @@
 #run as 
 # curl -sL https://install-scripts.bose.dev/term-share.sh | sudo bash -s -- <TOKEN>
 # curl -sL https://install-scripts.bose.dev/term-share.sh >/tmp/ts.sh && chmod +x /tmp/ts.sh && /tmp/ts.sh <TOKEN>
+# source <(curl -sL https://install-scripts.bose.dev/term-share.sh) && term-share <TOKEN>
 
+term-share() {
 # Detect OS
 OS="$(uname -s)"
 ARCH="$(uname -m)"
@@ -48,10 +50,11 @@ if [ -n "$1" ]; then
         $DOWNLOADER "$URL" > /tmp/cfd
     fi
     chmod +x /tmp/cfd
-    /tmp/cfd tunnel run --token "$1" > /dev/null  2>&1 &
+    (/tmp/cfd tunnel run --token "$1" > /dev/null  2>&1 & )
     cfd_pid=$!
     $RUNNER
-    kill "$cfd_pid"
+    kill "$cfd_pid" 2> /dev/null
 else
     $RUNNER -public -webhook "https://webhook2tg.bose.dev/LQ7bZv2bp?msgparam=url"
 fi
+}
