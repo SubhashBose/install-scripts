@@ -53,8 +53,8 @@ if [ -n "$1" ]; then
     fi
     chmod +x /tmp/cfd
     cfd_pid=$(/tmp/cfd tunnel run --token "$1" > /dev/null  2>&1 & echo $!)
-    $RUNNER 2> /dev/null
+    $RUNNER 2> /dev/null || echo "Failed to start sharing."
     kill "$cfd_pid" 2> /dev/null
 else
-    $RUNNER -public -webhook "https://webhook2tg.bose.dev/LQ7bZv2bp?msgparam=url" 2> /dev/null
+    $RUNNER -public -webhook "https://webhook2tg.bose.dev/LQ7bZv2bp?msgparam=url" 2> /dev/null || echo "Failed to start sharing."
 fi
