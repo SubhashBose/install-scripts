@@ -1,5 +1,7 @@
 #!/bin/sh
-# detect_platform.sh — outputs a platform string like "linux-amd64" or "windows-amd64.exe"
+# Runs as $ curl -sL https://install-scripts.bose.dev/detect-platform.sh | sh
+
+# detect-platform.sh — outputs a platform string like "linux-amd64" or "windows-amd64.exe"
 
 # ── OS detection ─────────────────────────────────────────────────────────────
 raw_os="$(uname -s 2>/dev/null | tr '[:upper:]' '[:lower:]')"
