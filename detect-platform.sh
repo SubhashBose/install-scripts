@@ -48,7 +48,7 @@ else
   os_arch="${os}-${arch}"
 fi
 
-if [ "$2" == "" ]; then
+if [ -z "$2" ]; then
   echo "$os_arch"
   exit 0
 fi
