@@ -1,5 +1,6 @@
 #!/bin/sh
-# Runs as $ curl -sL https://install-scripts.bose.dev/detect-platform.sh | sh
+# Get OS-ARCH:  $ curl -sL https://install-scripts.bose.dev/detect-platform.sh | sh
+# Get Github binary release: $ curl -sL https://install-scripts.bose.dev/detect-platform.sh | sh -s -- SubhashBose/Repo bin-name-prefix
 
 # detect-platform.sh — outputs a platform string like "linux-amd64" or "windows-amd64.exe"
 
