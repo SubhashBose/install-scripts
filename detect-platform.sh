@@ -43,7 +43,16 @@ esac
 
 # ── Compose output ────────────────────────────────────────────────────────────
 if [ "$os" = "windows" ]; then
-  echo "${os}-${arch}.exe"
+  os_arch = "${os}-${arch}.exe"
 else
-  echo "${os}-${arch}"
+  os_arch = "${os}-${arch}"
 fi
+
+if [ "$2" == "" ]; then
+  echo "$os_arch"
+  exit 0
+fi
+
+bin_url = "https://github.com/${1}/releases/latest/download/${2}-${os_arch}"
+
+echo "$bin_url"
